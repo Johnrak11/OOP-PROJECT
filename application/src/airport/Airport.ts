@@ -9,4 +9,15 @@ export class Airport {
         private gates: Gate[],
         private airportController: AirportController,
         private airlines: Airline[]) { }
+
+    //get full detail of passenger
+    public getPassengerDetail = ( bookingReferenceNumber: string) => {
+        for (let airline of this.airlines){
+            for (let booking of airline.getBooking()){
+                if (booking.getBookingReferenceNumber() === bookingReferenceNumber){
+                    return booking;
+                };
+            };
+        };
+    };
 }
