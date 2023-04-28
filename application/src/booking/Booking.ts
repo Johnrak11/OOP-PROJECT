@@ -4,8 +4,8 @@ import { Baggage } from "./baggage/Baggage";
 import { Mealtype } from "./mealType/MealType";
 
 export class Booking {
-    private checkedIn: boolean = false;
     constructor(
+        private checkedIn: boolean = false,
         private bookingReferenceNumber: string,
         private passenger : Passenger,
         private baggages: Baggage[],
