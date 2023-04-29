@@ -15,13 +15,20 @@ export class Airline {
     // get bookings
     public getBooking = (): Booking[] => this.bookings;
 
+    // add booking
+    public addBooking = (...bookings: Booking[]): void => {
+        for (let booking of bookings) {
+            this.bookings.push(booking)
+        }
+    };
+
     // passengers have return tickets
-    public getPassengerReturnTickets = (flight : Flight) => {
-        let listPassengers : Passenger[] = []
-        for (let booking of this.bookings){
-            for (let bookingFlight of booking.getDepartureTrip().getBookingFlights()){
-                if (bookingFlight.getFlight() === flight){
-                    if (booking.isReturn()){
+    public getPassengerReturnTickets = (flight: Flight) => {
+        let listPassengers: Passenger[] = []
+        for (let booking of this.bookings) {
+            for (let bookingFlight of booking.getDepartureTrip().getBookingFlights()) {
+                if (bookingFlight.getFlight() === flight) {
+                    if (booking.isReturn()) {
                         listPassengers.push(booking.getPassenger());
                     }
                 }
