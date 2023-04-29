@@ -1,4 +1,5 @@
 import { DateTime } from "../airport/dateTime/DateTime";
+import { Gate } from "../airport/gate/Gate";
 import { Trip } from "../airport/trip/Trip";
 import { Flight } from "../airport/trip/flight/Flight";
 import { AirlinePilot } from "../person/airlineStaff/AirlinePilot";
@@ -46,4 +47,13 @@ export class Booking {
     // is flight
     public isFlight = (flight: Flight): boolean => this.departureTrip.getBookingFlights().some(bookingFlight => bookingFlight.getFlight() === flight);
 
+    // get gate number of flight
+    public getFlightGate = (flightNumber: string, date: DateTime): Gate | undefined => {
+        for (let bookingFlight of this.departureTrip.getBookingFlights()) {
+            if (bookingFlight.getFlight().getRoute().getDepartureDateTime().isEqual(date) && bookingFlight.getFlight().getflightNumber() === flightNumber) {
+                return bookingFlight.getFlight().getGate();
+            };
+        };
+        return undefined;
+    };
 }

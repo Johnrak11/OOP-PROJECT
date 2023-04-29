@@ -72,4 +72,12 @@ export class Airline {
         return listOfMeal;
     };
 
+    // get total saraly
+    public getTotalSalaryOfEmployees = () => {
+        let totalSalary: number = 0;
+        for (let employee of this.employees) {
+            totalSalary += employee.getSalary();
+        }
+        return totalSalary;
+    };
 }

@@ -126,10 +126,10 @@ let route3 = new Route(dateTime6, dateTime5, airport1, airport3);
 let route4 = new Route(dateTime1, dateTime3, airport1, airport2);
 
 // Flights
-let flight1 = new Flight(1, airlinePilot1, airline1, route1, gate1, airplane1);
-let flight2 = new Flight(2, airlinePilot2, airline2, route2, gate2, airplane3);
-let flight3 = new Flight(3, airlinePilot2, airline3, route3, gate3, airplane4);
-let flight4 = new Flight(4, airlinePilot4, airline3, route4, gate4, airplane3);
+let flight1 = new Flight("CX123", airlinePilot1, airline1, route1, gate1, airplane1);
+let flight2 = new Flight("SQ456", airlinePilot2, airline2, route2, gate2, airplane3);
+let flight3 = new Flight("AA789", airlinePilot2, airline3, route3, gate3, airplane4);
+let flight4 = new Flight("EK101", airlinePilot4, airline3, route4, gate4, airplane3);
 
 // =========================================== Booking =====================
 
@@ -172,7 +172,7 @@ let baggage10 = new Baggage(`56789012313`, 50, baggageTag10);
 
 // bookings 
 let booking1 = new Booking(`AB456C`, passenger1, [baggage1, baggage2], Mealtype.Halal, trip1, trip4);
-let booking2 = new Booking(`AB456D`, passenger2, [baggage3, baggage4], Mealtype.DairyFree, trip1, trip4);
+let booking2 = new Booking(`AB456D`, passenger2, [baggage3, baggage4], Mealtype.DairyFree, trip3, trip4);
 let booking3 = new Booking(`AB456E`, passenger3, [baggage6, baggage5], Mealtype.Kosher, trip3);
 let booking4 = new Booking(`AB456F`, passenger4, [baggage7, baggage8], Mealtype.Vegan, trip4);
 let booking5 = new Booking(`AB456G`, passenger5, [baggage9, baggage10], Mealtype.Vegetarian, trip2);
@@ -185,7 +185,7 @@ passenger4.addBooking(booking4);
 passenger5.addBooking(booking5);
 
 // add booking to ariline 
-airline1.addBooking(booking1, booking2);
+airline1.addBooking(booking1, booking2, booking3);
 airline2.addBooking(booking4, booking3);
 airline3.addBooking(booking5);
 /*
@@ -199,20 +199,20 @@ User story1 ===> As an airport controller, I need to get the full details of a p
 Reference Number (flights, bags, customer information…)
 */
 
-// console.log(airport1.getPassengerDetail('AB456C'));
+console.log(airport1.getPassengerDetail('AB456C'));
 
 /* 
 User story2 ===> As an airline manager, I want to know for a given flight, how many passengers have return 
 tickets.
 */
 
-// console.log(airline1.getPassengerReturnTickets(flight1));
+console.log(airline1.getPassengerReturnTickets(flight1));
 
 /* 
 User story3 ===> As an airline pilot, I want to know, for a given date, how many flights I have to join.
 */
 
-// console.log(airline1.getPilotFlight(airlinePilot1,dateTime1));
+console.log(airline1.getPilotFlight(airlinePilot1,dateTime1));
 
 /* 
 User story4 ===>  As an airline chef, I need to know, for a given flight, how many of each meal type I need to 
@@ -220,3 +220,14 @@ prepare
 */
 
 console.log(airline1.getTypeOfMeal(flight1));
+
+/* 
+User story5 ===> As a passenger, I want to know which gate my plane is waiting at.
+ */
+
+console.log(airline1.getTotalSalaryOfEmployees())
+
+/*
+User story6 ===> As a passenger, I want to know, for a given date and flight number what is the gate number I need to go to
+ */
+console.log(passenger1.getGateNumber(`CX123`,dateTime1));
