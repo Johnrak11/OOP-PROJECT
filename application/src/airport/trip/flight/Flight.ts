@@ -11,4 +11,10 @@ export class Flight {
         private route: Route,
         private gate: Gate,
         private airplane: Airplane) { }
+
+    //get route 
+    public getRoute = ():Route => this.route;
+
+    //get Pilot
+    public getPilot = () : AirlinePilot => this.airLinePilot;
 }

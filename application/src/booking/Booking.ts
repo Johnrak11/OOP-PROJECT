@@ -1,4 +1,7 @@
+import { DateTime } from "../airport/dateTime/DateTime";
 import { Trip } from "../airport/trip/Trip";
+import { Flight } from "../airport/trip/flight/Flight";
+import { AirlinePilot } from "../person/airlineStaff/AirlinePilot";
 import { Passenger } from "../person/passenger/Passenger";
 import { Baggage } from "./baggage/Baggage";
 import { Mealtype } from "./mealType/MealType";
@@ -25,4 +28,15 @@ export class Booking {
 
     //get trip
     public getDepartureTrip = (): Trip => this.departureTrip;
+
+    //get Flight number 
+    public getNumberOfFlights = (pilot: AirlinePilot ,date: DateTime): number => {
+        let numberOfFlight: number = 0;
+        for (let bookingFlight of this.departureTrip.getBookingFlights()) {
+            if (bookingFlight.getFlight().getRoute().getDepartureDateTime().isEqual(date) && bookingFlight.getFlight().getPilot() === pilot) {
+                numberOfFlight += 1
+            }
+        }
+        return numberOfFlight;
+    };
 }

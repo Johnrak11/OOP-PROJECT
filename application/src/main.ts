@@ -128,7 +128,7 @@ let route4 = new Route(dateTime1, dateTime3, airport1, airport2);
 // Flights
 let flight1 = new Flight(1, airlinePilot1, airline1, route1, gate1, airplane1);
 let flight2 = new Flight(2, airlinePilot2, airline2, route2, gate2, airplane3);
-let flight3 = new Flight(3, airlinePilot3, airline3, route3, gate3, airplane4);
+let flight3 = new Flight(3, airlinePilot2, airline3, route3, gate3, airplane4);
 let flight4 = new Flight(4, airlinePilot4, airline3, route4, gate4, airplane3);
 
 // =========================================== Booking =====================
@@ -172,7 +172,7 @@ let baggage10 = new Baggage(`56789012313`, 50, baggageTag10);
 
 // bookings 
 let booking1 = new Booking(`AB456C`, passenger1, [baggage1, baggage2], Mealtype.Halal, trip1, trip4);
-let booking2 = new Booking(`AB456D`, passenger2, [baggage3, baggage4], Mealtype.DairyFree, trip2, trip3);
+let booking2 = new Booking(`AB456D`, passenger2, [baggage3, baggage4], Mealtype.DairyFree, trip1, trip4);
 let booking3 = new Booking(`AB456E`, passenger3, [baggage6, baggage5], Mealtype.Kosher, trip3);
 let booking4 = new Booking(`AB456F`, passenger4, [baggage7, baggage8], Mealtype.Vegan, trip4);
 let booking5 = new Booking(`AB456G`, passenger5, [baggage9, baggage10], Mealtype.Vegetarian, trip2);
@@ -206,6 +206,11 @@ User story2 ===> As an airline manager, I want to know for a given flight, how m
 tickets.
 */
 
-// console.log(airline1.getPassengerReturnTickets(flight1));
+// console.log(airline1.getPassengerReturnTickets(flight3));
 
+/* 
+User story3 ===> As an airline pilot, I want to know, for a given date, how many flights I have to join.
+*/
+
+// console.log(airline1.getPilotFlight(airlinePilot1,dateTime1));
 
