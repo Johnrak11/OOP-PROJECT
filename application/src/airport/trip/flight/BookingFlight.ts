@@ -1,6 +1,6 @@
 
-import { SeatLayout } from "../seatLayout/SeatLayout";
 import { DateTime } from "../../dateTime/DateTime";
+import { SeatLayout } from "../seatLayout/SeatLayout";
 import { Flight } from "./Flight";
 
 export class BookingFlight {
@@ -11,8 +11,8 @@ export class BookingFlight {
     //get flight 
     public getFlight = (): Flight => this.flight;
 
-    public getGateNumber =(flight:Flight,date:DateTime)=>{
-        if (this.getFlight()==flight && isEqual(date)){
+    public getGateNumber = (flight: Flight, date: DateTime) => {
+        if (this.getFlight() == flight && date.isEqual(date)) {
             return flight.getGate()
         }
     }

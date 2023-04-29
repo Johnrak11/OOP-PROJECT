@@ -57,12 +57,21 @@ export class Airline {
         let totalFlight: number | string = 0;
         if (this.isPilot(pilot)) {
             for (let booking of this.bookings) {
-                totalFlight += booking.getNumberOfFlights(pilot,dateTime);
+                totalFlight += booking.getNumberOfFlights(pilot, dateTime);
             }
-        }else{
+        } else {
             totalFlight = `Undefine this Pilot`;
         }
         return totalFlight;
+    }
+
+    public getTotalSalaryOfEmployees = () => {
+        let totalSalary: number = 0;
+        for (let employee of this.employees) {
+            totalSalary += employee.getSalary()
+
+        }
+        return totalSalary;
     }
 
 }

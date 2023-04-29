@@ -9,6 +9,8 @@ export class Employee extends Person {
         protected salary: number) {
         super(firstName, lastName);
     }
+
+    public getSalary= ()=> this.salary;
 }
 
 

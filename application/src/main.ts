@@ -126,10 +126,10 @@ let route3 = new Route(dateTime6, dateTime5, airport1, airport3);
 let route4 = new Route(dateTime1, dateTime3, airport1, airport2);
 
 // Flights
-let flight1 = new Flight(1, airlinePilot1, airline1, route1, gate1, airplane1);
-let flight2 = new Flight(2, airlinePilot2, airline2, route2, gate2, airplane3);
-let flight3 = new Flight(3, airlinePilot2, airline3, route3, gate3, airplane4);
-let flight4 = new Flight(4, airlinePilot4, airline3, route4, gate4, airplane3);
+let flight1 = new Flight("CX123", airlinePilot1, airline1, route1, gate1, airplane1);
+let flight2 = new Flight("SQ456", airlinePilot2, airline2, route2, gate2, airplane3);
+let flight3 = new Flight("AA789", airlinePilot2, airline3, route3, gate3, airplane4);
+let flight4 = new Flight("EK101", airlinePilot4, airline3, route4, gate4, airplane3);
 
 // =========================================== Booking =====================
 
@@ -214,3 +214,14 @@ User story3 ===> As an airline pilot, I want to know, for a given date, how many
 
 // console.log(airline1.getPilotFlight(airlinePilot1,dateTime1));
 
+/* 
+As a passenger, I want to know, for a given date and flight number what is the gate number I need to go to
+ */
+
+console.log(passenger1.getGateNumber(`CX123`,dateTime1));
+
+
+/* 
+As a passenger, I want to know which gate my plane is waiting at.
+ */
+// console.log(airline1.getTotalSalaryOfEmployees())
