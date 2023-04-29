@@ -56,7 +56,7 @@ export class Airline {
                 totalFlight += booking.getNumberOfFlights(pilot, dateTime);
             }
         } else {
-            totalFlight = `Undefine this Pilot`;
+            totalFlight = `Undefined this Pilot`;
         }
         return totalFlight;
     }
