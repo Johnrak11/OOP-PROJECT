@@ -11,4 +11,13 @@ export class Flight {
         private route: Route,
         private gate: Gate,
         private airplane: Airplane) { }
+    public getAirline(){
+        return this.airline
+    }
+    public getlegNumber(){
+        return this.legNumber
+    }
+    public getGate =()=>{
+        return this.gate;
+    }
 }
