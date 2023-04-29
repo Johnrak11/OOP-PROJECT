@@ -1,4 +1,5 @@
 import { Booking } from "../../booking/Booking";
+import { Mealtype } from "../../booking/mealType/MealType";
 import { Employee } from "../../person/Employee";
 import { AirplineManager } from "../../person/airlineStaff/AirlineManager";
 import { AirlinePilot } from "../../person/airlineStaff/AirlinePilot";
@@ -28,20 +29,15 @@ export class Airline {
     public getPassengerReturnTickets = (flight: Flight) => {
         let listPassengers: Passenger[] = []
         for (let booking of this.bookings) {
-            for (let bookingFlight of booking.getDepartureTrip().getBookingFlights()) {
-                if (bookingFlight.getFlight() === flight) {
-                    if (booking.isReturn()) {
-                        listPassengers.push(booking.getPassenger());
-                    }
-                }
-            }
+            if (booking.isFlight(flight) && booking.isReturn()) {
+                listPassengers.push(booking.getPassenger());
+            };
         };
         return listPassengers;
     };
 
     //is Employee
     public isPilot = (pilot: AirlinePilot): boolean => {
-        // to know if pilot work in this airline
         for (let employee of this.employees) {
             if (employee instanceof AirlinePilot) {
                 if (pilot === employee) {
@@ -57,12 +53,23 @@ export class Airline {
         let totalFlight: number | string = 0;
         if (this.isPilot(pilot)) {
             for (let booking of this.bookings) {
-                totalFlight += booking.getNumberOfFlights(pilot,dateTime);
+                totalFlight += booking.getNumberOfFlights(pilot, dateTime);
             }
-        }else{
+        } else {
             totalFlight = `Undefine this Pilot`;
         }
         return totalFlight;
     }
+
+    //get type of meal
+    public getTypeOfMeal = (flight: Flight) => {
+        let listOfMeal: string[] = [];
+        for (let booking of this.bookings) {
+            if (booking.isFlight(flight)) {
+                listOfMeal.push(Mealtype[booking.getMealType()]);
+            };
+        };
+        return listOfMeal;
+    };
 
 }

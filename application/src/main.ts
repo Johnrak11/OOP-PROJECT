@@ -206,7 +206,7 @@ User story2 ===> As an airline manager, I want to know for a given flight, how m
 tickets.
 */
 
-// console.log(airline1.getPassengerReturnTickets(flight3));
+// console.log(airline1.getPassengerReturnTickets(flight1));
 
 /* 
 User story3 ===> As an airline pilot, I want to know, for a given date, how many flights I have to join.
@@ -214,3 +214,9 @@ User story3 ===> As an airline pilot, I want to know, for a given date, how many
 
 // console.log(airline1.getPilotFlight(airlinePilot1,dateTime1));
 
+/* 
+User story4 ===>  As an airline chef, I need to know, for a given flight, how many of each meal type I need to 
+prepare
+*/
+
+console.log(airline1.getTypeOfMeal(flight1));

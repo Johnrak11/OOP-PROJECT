@@ -26,11 +26,14 @@ export class Booking {
     //get passenger
     public getPassenger = (): Passenger => this.passenger;
 
+    //get mealType
+    public getMealType = () : Mealtype => this.mealType;
+
     //get trip
     public getDepartureTrip = (): Trip => this.departureTrip;
 
     //get Flight number 
-    public getNumberOfFlights = (pilot: AirlinePilot ,date: DateTime): number => {
+    public getNumberOfFlights = (pilot: AirlinePilot, date: DateTime): number => {
         let numberOfFlight: number = 0;
         for (let bookingFlight of this.departureTrip.getBookingFlights()) {
             if (bookingFlight.getFlight().getRoute().getDepartureDateTime().isEqual(date) && bookingFlight.getFlight().getPilot() === pilot) {
@@ -39,4 +42,8 @@ export class Booking {
         }
         return numberOfFlight;
     };
+
+    // is flight
+    public isFlight = (flight: Flight): boolean => this.departureTrip.getBookingFlights().some(bookingFlight => bookingFlight.getFlight() === flight);
+
 }
