@@ -6,4 +6,7 @@ export class Route {
         private arrivalDateTime: DateTime,
         private arrivalAirport: Airport,
         private departureAirport: Airport) { }
+
+    //get departureDateTime
+    public getDepartureDateTime = (): DateTime => this.departureDateTime;
 }
